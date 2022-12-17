@@ -1,0 +1,154 @@
+{
+	"info": {
+		"_postman_id": "28dcf5f7-5cf4-4829-8291-7dbe1989eafa",
+		"name": "task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20901590"
+	},
+	"item": [
+		{
+			"name": "https://reqres.in/api/users?page=2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var response_body= JSON.parse(responseBody);",
+							"var per = response_body.per_page;",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"        pm.response.to.have.status(200);",
+							"    });",
+							"",
+							"pm.test(\"data is not empty\", function () {",
+							"    pm.expect(response_body.data).to.not.be.null;",
+							"    ",
+							"});",
+							"",
+							"pm.test(\"the data contains id\", function () {",
+							"    pm.expect(response_body.data[0].id).to.eql(7);",
+							"});",
+							"",
+							"pm.test(\"the data contains email\", function () {",
+							"    pm.expect(response_body.data[0].email).to.eql(\"michael.lawson@reqres.in\");",
+							"});",
+							"",
+							"pm.test(\"the data contains id\", function () {",
+							"    pm.expect(response_body.data[1].id).to.eql(8);",
+							"});",
+							"",
+							"pm.test(\"the data contains email\", function () {",
+							"    pm.expect(response_body.data[1].email).to.eql(\"lindsay.ferguson@reqres.in\");",
+							"});",
+							"",
+							"pm.test(\"the data contains id\", function () {",
+							"    pm.expect(response_body.data[2].id).to.eql(9);",
+							"});",
+							"",
+							"pm.test(\"the data contains email\", function () {",
+							"    pm.expect(response_body.data[2].email).to.eql(\"tobias.funke@reqres.in\");",
+							"});",
+							"",
+							"pm.test(\"the data contains id\", function () {",
+							"    pm.expect(response_body.data[3].id).to.eql(10);",
+							"});",
+							"",
+							"pm.test(\"the data contains email\", function () {",
+							"    pm.expect(response_body.data[3].email).to.eql(\"byron.fields@reqres.in\");",
+							"});",
+							"",
+							"pm.test(\"the data contains id\", function () {",
+							"    pm.expect(response_body.data[4].id).to.eql(11);",
+							"});",
+							"",
+							"pm.test(\"the data contains email\", function () {",
+							"    pm.expect(response_body.data[4].email).to.eql(\"george.edwards@reqres.in\");",
+							"});",
+							"",
+							"pm.test(\"the data contains id\", function () {",
+							"    pm.expect(response_body.data[5].id).to.eql(12);",
+							"});",
+							"",
+							"pm.test(\"the data contains email\", function () {",
+							"    pm.expect(response_body.data[5].email).to.eql(\"rachel.howell@reqres.in\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users?page=2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://reqres.in/api/users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var response_body= JSON.parse(responseBody);",
+							"pm.test(\"Status code is 201\", function () {",
+							"        pm.response.to.have.status(201);",
+							"    });",
+							"",
+							"pm.test(\"response is not empty\", function () {",
+							"    pm.expect(response_body).to.not.be.null;",
+							"    ",
+							"});",
+							"",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"id\");",
+							"});",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"createdAt\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
